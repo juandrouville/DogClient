@@ -5,6 +5,7 @@ export const ERROR_DOGS = 'ERROR_DOGS';
 export const RESET_DOGS = 'RESET_DOGS';
 export const NEXT_PAGE = 'NEXT_PAGE';
 export const PREVIUS_PAGE = 'PREVIUS_PAGE';
+const BASE_URL_API = 'https://combative-jay-tam.cyclic.app';
 
 export function requestDogs(){
     return {
@@ -49,7 +50,7 @@ export function prevPage(page){
 export function getDogs(){
     return (dispatch) => {
         dispatch(requestDogs());
-        axios.get(`${'http://localhost:3000'}/dogs`)
+        axios.get(`${BASE_URL_API}/dogs`)
         .then(response => {
             dispatch(succesDogs(response.data))
         })
@@ -63,7 +64,7 @@ export function getNextPage(page){
     return (dispatch) => {
         dispatch(nextPage(page))
         dispatch(requestDogs());
-        axios.get(`${process.env.REACT_APP_API_URL}/dogs?page=${page}`)
+        axios.get(`${BASE_URL_API}/dogs?page=${page}`)
         .then(response => {
             dispatch(succesDogs(response.data))
         })
@@ -77,7 +78,7 @@ export function getPrevPage(page){
     return (dispatch) => {
         dispatch(prevPage(page))
         dispatch(requestDogs());
-        axios.get(`${process.env.REACT_APP_API_URL}/dogs?page=${page}`)
+        axios.get(`${BASE_URL_API}/dogs?page=${page}`)
         .then(response => {
             dispatch(succesDogs(response.data))
         })
@@ -90,7 +91,7 @@ export function getPrevPage(page){
 export function searchDogName(search){
     return (dispatch) => {
         dispatch(requestDogs());
-        axios.get(`${process.env.REACT_APP_API_URL}/dogs?name=${search}`)
+        axios.get(`${BASE_URL_API}/dogs?name=${search}`)
         .then(response => {
             dispatch(succesDogs(response.data))
         })
@@ -102,7 +103,7 @@ export function searchDogName(search){
 
 export function postDog(dog){
     return (dispatch) => {
-        axios.post(`${process.env.REACT_APP_API_URL}/dogs`,{...dog})
+        axios.post(`${BASE_URL_API}/dogs`,{...dog})
         .then(response => {
             dispatch(succesDogs(response.data))
         })
@@ -115,7 +116,7 @@ export function postDog(dog){
 export function getDetailsDog(dogId){
     return (dispatch) => {
         dispatch(requestDogs());
-        axios.get(`${process.env.REACT_APP_API_URL}/dogs/${dogId}`)
+        axios.get(`${BASE_URL_API}/dogs/${dogId}`)
         .then(response => {
             dispatch(succesDogs(response.data))
         })
@@ -128,7 +129,7 @@ export function getDetailsDog(dogId){
 export function getByTemperaments(temperament){
     return (dispatch) => {
         dispatch(requestDogs());
-        axios.get(`${process.env.REACT_APP_API_URL}/dogs/temperaments/${temperament}`)
+        axios.get(`${BASE_URL_API}/dogs/temperaments/${temperament}`)
         .then(response => {
             dispatch(succesDogs(response.data[0].dogs))
         })
@@ -141,7 +142,7 @@ export function getByTemperaments(temperament){
 export function getCreated(){
     return (dispatch) => {
         dispatch(requestDogs());
-        axios.get(`${process.env.REACT_APP_API_URL}/dogs/get/created`)
+        axios.get(`${BASE_URL_API}/dogs/get/created`)
         .then(response => {
             dispatch(succesDogs(response.data))
         })
@@ -154,7 +155,7 @@ export function getCreated(){
 export function getByOrder(order){
     return (dispatch) => {
         dispatch(requestDogs());
-        axios.get(`${process.env.REACT_APP_API_URL}/dogs?order=${order}`)
+        axios.get(`${BASE_URL_API}/dogs?order=${order}`)
         .then(response => {
             dispatch(succesDogs(response.data))
         })
