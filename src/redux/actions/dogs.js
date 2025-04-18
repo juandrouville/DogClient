@@ -5,7 +5,7 @@ export const ERROR_DOGS = 'ERROR_DOGS';
 export const RESET_DOGS = 'RESET_DOGS';
 export const NEXT_PAGE = 'NEXT_PAGE';
 export const PREVIUS_PAGE = 'PREVIUS_PAGE';
-const BASE_URL_API = 'https://combative-jay-tam.cyclic.app';
+const BASE_URL_API = 'https://dogapi-f1y4.onrender.com';
 
 export function requestDogs(){
     return {

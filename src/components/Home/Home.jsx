@@ -19,6 +19,7 @@ function Home(){
     },[]);
     
     const state = useSelector((state)=> state.dogs);
+
     return(
         <div>
             <NavBar/>
