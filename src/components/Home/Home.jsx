@@ -23,7 +23,6 @@ function Home(){
     return(
         <div>
             <NavBar/>
-            <Filter/>
             <div className="home">
                 {state.loading && <Loading/>}
                 {state.dogs.length !== 0 && <Cards/>}

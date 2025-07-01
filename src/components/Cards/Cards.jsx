@@ -4,7 +4,7 @@ import Card from './Card';
 import './style_cards.css';
 
 function Cards(){
-    const state = useSelector((state)=> state.dogs.dogs);
+    const state = useSelector((state)=> state.dogs.dogs) ;console.log(state[0].id);
     return (
         <div className = "cards">
             {state && state.map(ele =>

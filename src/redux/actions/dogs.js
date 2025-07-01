@@ -5,7 +5,9 @@ export const ERROR_DOGS = 'ERROR_DOGS';
 export const RESET_DOGS = 'RESET_DOGS';
 export const NEXT_PAGE = 'NEXT_PAGE';
 export const PREVIUS_PAGE = 'PREVIUS_PAGE';
-const BASE_URL_API = 'https://dogapi-f1y4.onrender.com';
+const BASE_URL_API = 'https://dogapi-u6q5.onrender.com';
+
+
 
 export function requestDogs(){
     return {
@@ -48,10 +50,12 @@ export function prevPage(page){
 };
 
 export function getDogs(){
+    console.log(`entrou no get dog,${BASE_URL_API}/dogs`);
     return (dispatch) => {
         dispatch(requestDogs());
         axios.get(`${BASE_URL_API}/dogs`)
         .then(response => {
+            console.log(response.data)
             dispatch(succesDogs(response.data))
         })
         .catch(error => {
@@ -64,7 +68,7 @@ export function getNextPage(page){
     return (dispatch) => {
         dispatch(nextPage(page))
         dispatch(requestDogs());
-        axios.get(`${BASE_URL_API}/dogs?page=${page}`)
+       axios.get(`${BASE_URL_API}/dogs?page=${page}`)
         .then(response => {
             dispatch(succesDogs(response.data))
         })
@@ -74,93 +78,93 @@ export function getNextPage(page){
     };
 };
 
-export function getPrevPage(page){
-    return (dispatch) => {
-        dispatch(prevPage(page))
-        dispatch(requestDogs());
-        axios.get(`${BASE_URL_API}/dogs?page=${page}`)
-        .then(response => {
-            dispatch(succesDogs(response.data))
-        })
-        .catch(error => {
-            dispatch(errorDogs('Not found request'))
-        });
-    };
-};
+ export function getPrevPage(page){
+     return (dispatch) => {
+         dispatch(prevPage(page))
+         dispatch(requestDogs());
+            axios.get(`${BASE_URL_API}/dogs?page=${page}`)
+         .then(response => {
+             dispatch(succesDogs(response.data))
+         })
+         .catch(error => {
+             dispatch(errorDogs('Not found request'))
+         });
+     };
+ };
 
-export function searchDogName(search){
-    return (dispatch) => {
-        dispatch(requestDogs());
-        axios.get(`${BASE_URL_API}/dogs?name=${search}`)
-        .then(response => {
-            dispatch(succesDogs(response.data))
-        })
-        .catch(error => {
-            dispatch(errorDogs('Not found request'))
-        });
-    };
-};
+ export function searchDogName(search){
+     return (dispatch) => {
+         dispatch(requestDogs());
+         axios.get(`${BASE_URL_API}/dogs?name=${search}`)
+         .then(response => {
+             dispatch(succesDogs(response.data))
+         })
+         .catch(error => {
+             dispatch(errorDogs('Not found request'))
+         });
+     };
+ };
 
-export function postDog(dog){
-    return (dispatch) => {
-        axios.post(`${BASE_URL_API}/dogs`,{...dog})
-        .then(response => {
-            dispatch(succesDogs(response.data))
-        })
-        .catch(error => {
-            dispatch(errorDogs('Not found request'))
-        });
-    };
-};
+ export function postDog(dog){
+     return (dispatch) => {
+         axios.post(`${BASE_URL_API}/dogs`,{...dog})
+         .then(response => {
+             dispatch(succesDogs(response.data))
+         })
+         .catch(error => {
+             dispatch(errorDogs('Not found request'))
+         });
+     };
+ };
         
-export function getDetailsDog(dogId){
-    return (dispatch) => {
-        dispatch(requestDogs());
-        axios.get(`${BASE_URL_API}/dogs/${dogId}`)
-        .then(response => {
-            dispatch(succesDogs(response.data))
-        })
-        .catch(error => {
-            dispatch(errorDogs('Not found request'))
-        });
-    };
-};
+ export function getDetailsDog(dogId){
+     return (dispatch) => {
+         dispatch(requestDogs());
+         axios.get(`${BASE_URL_API}/dogs/${dogId}`)
+         .then(response => {
+             dispatch(succesDogs(response.data))
+         })
+         .catch(error => {
+             dispatch(errorDogs('Not found request'))
+         });
+     };
+ };
 
-export function getByTemperaments(temperament){
-    return (dispatch) => {
-        dispatch(requestDogs());
-        axios.get(`${BASE_URL_API}/dogs/temperaments/${temperament}`)
-        .then(response => {
-            dispatch(succesDogs(response.data[0].dogs))
-        })
-        .catch(error => {
-            dispatch(errorDogs('Not found request'))
-        });
-    };
-};
+ export function getByTemperaments(temperament){
+     return (dispatch) => {
+         dispatch(requestDogs());
+         axios.get(`${BASE_URL_API}/dogs/temperaments/${temperament}`)
+         .then(response => {
+             dispatch(succesDogs(response.data[0].dogs))
+         })
+         .catch(error => {
+             dispatch(errorDogs('Not found request'))
+         });
+     };
+ };
     
-export function getCreated(){
-    return (dispatch) => {
-        dispatch(requestDogs());
-        axios.get(`${BASE_URL_API}/dogs/get/created`)
-        .then(response => {
-            dispatch(succesDogs(response.data))
-        })
-        .catch(error => {
-            dispatch(errorDogs('Not found request'))
-        });
-    };
-};
+ export function getCreated(){
+     return (dispatch) => {
+         dispatch(requestDogs());
+         axios.get(`${BASE_URL_API}/dogs/get/created`)
+         .then(response => {
+             dispatch(succesDogs(response.data))
+         })
+         .catch(error => {
+             dispatch(errorDogs('Not found request'))
+         });
+     };
+ };
 
-export function getByOrder(order){
-    return (dispatch) => {
-        dispatch(requestDogs());
-        axios.get(`${BASE_URL_API}/dogs?order=${order}`)
-        .then(response => {
-            dispatch(succesDogs(response.data))
-        })
-        .catch(error => {
-            dispatch(errorDogs('Not found request'))
-        });
-    };
-};
+ export function getByOrder(order){
+     return (dispatch) => {
+         dispatch(requestDogs());
+         axios.get(`${BASE_URL_API}/dogs?order=${order}`)
+         .then(response => {
+             dispatch(succesDogs(response.data))
+         })
+         .catch(error => {
+             dispatch(errorDogs('Not found request'))
+         });
+     };
+ };

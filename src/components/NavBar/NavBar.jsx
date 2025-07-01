@@ -11,19 +11,17 @@ import { Link } from 'react-router-dom';
 function NavBar(){
     const dispatch = useDispatch();
     return(
-        <div className = "container">
-            <div className="div-logo" onClick = {()=>{
-                dispatch(resetDogs());
-            }}>
+        <div className = "containerNav">
+            <div className="sectionOptions">
             <Link to = '/home'>
-                <img src={img} alt="Not Found"/>
+                <img src={img} alt="Not Found" className='logoNav'/>
             </Link>
             <div>
-                <Link to='/create' className="create">Create Dog</Link>
-                <Link to= '/mydogs' className="create">My Dogs</Link>
+                <Link to='/create' className="routesNav">Create Dog</Link>
+                <Link to= '/mydogs' className="routesNav">My Dogs</Link>
             </div>
             </div>
-            <div className="searchBar">
+            <div className="searchBarNav">
                 <SearchBar/>
             </div>
         </div>

@@ -6,9 +6,9 @@ import './style_landing.css';
 function Landing(){
     
     return(
-        <div className= "landing">
-            <h1 className = "text"> ! WELCOME PUPPY ! </h1>
-            <Link to = '/home' className="linkTo">GO!</Link>
+        <div className= "landingContainer">
+            <h1 className = "textWelcome"> ! WELCOME PUPPY ! </h1>
+            <Link to = '/home' className="buttonGo">GO!</Link>
         </div>
     );
 };

@@ -1,20 +1,21 @@
-
-
 .search{
-    position:relative;
-    padding: 5px;
-    
+    display:flex;
+    justify-content: flex-end;
+    width: clamp(5em, 11vw, 15em);
+    margin: 0;
+    padding: 0;
+    overflow: 0;
 }
+   
 
 .search input{
-    width: 0px;
-    height: 30px;
-    padding: 0 20px;
-    font-size: 18px;
-    color: rgb(46, 46, 46);
+    width: 0%;
+    padding:0;
+    margin: 0;
+    color:var(--dark-color);
     outline: none;
+    appearance: none;
     border: none;
-    border-bottom:1px solid silver;
     font-family: sans-serif;
     letter-spacing: 0.05em;
     transition: all 0.6s ease;
@@ -22,43 +23,43 @@
 
 .btn{
     display: flex;
-    position: absolute;
-    justify-content: center;
     align-items:center;
-    top:0;
-    right: 0;
-    background:white;
-    width:65px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    border-radius: 15px;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background:var(--my-yellow);
+    width: 2.2em;
+    height:clamp(2em,2vh,2.5em);
     cursor: pointer;
 }
     
-    
-
 .btn button{
     background: none;
     border:none;
-    font-family: sans-serif;
-    font-size: 20px;
-    color: rgb(83, 82, 82);
+    color:var(--dark-color);
 }
-
+    
 .btn button:hover{
     cursor: pointer;
 }
 
 .search:hover input{
-    width:240px;
+    width: clamp(8em,10vw,16em);
+    padding-left: 0.2em;
+    transition: all 0.6s ease;
 }
 
 .search input:focus{
-    width: 240px;
-    background: white;
+    width: clamp(8em,10vw,16em);
+    padding-left: 0.2em;
+    background: var(--light-color);
 }
 
 .search input:valid{
-    background: white;
+    background: var(--light-color);
 }
+
+
+    
+    
+

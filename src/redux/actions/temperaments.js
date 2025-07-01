@@ -4,7 +4,7 @@ export const REQUEST_TEMPERAMENTS = 'REQUEST_TEMPERAMENTS';
 export const SUCCES_TEMPERAMENTS = 'SUCCES_TEMPERAMENTS';
 export const ERROR_TEMPERAMENTS = 'ERROR_TEMPERAMENTS';
 
-const BASE_URL_API = 'https://dogapi-f1y4.onrender.com';
+const BASE_URL_API = 'https://dogapi-u6q5.onrender.com';
 
 export function requestTemperaments(){
     return {

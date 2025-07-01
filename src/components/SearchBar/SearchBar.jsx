@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { getDogs,searchDogName } from '../../redux/actions/dogs';
+import { searchDogName } from '../../redux/actions/dogs';
 import React, { useState } from 'react';
 import "./searchBar.css";
 import { IoIosSearch } from "react-icons/io";
@@ -11,10 +11,15 @@ function SearchBar(){
     const [search,setSearch]= useState();
     return(
         <div className="search">
-            <input type="search" 
+            <input
+                onKeyDown={(event)=>{
+                    if(event.key === 'Enter'){dispatch(searchDogName(search));setSearch('')};
+                }}
+                type="search" 
+                results="0"
                 placeholder="Search" 
                 autoComplete ="off"
-                id="search-country" 
+                id="search-dog" 
                 value={search}
                 onChange={
                     (event)=>{
@@ -22,11 +27,12 @@ function SearchBar(){
                     }}>
             </input>
                         
-            <div className="btn">
-                <button onClick={()=>{
-                    if(!search){return dispatch(getDogs())};
-                    dispatch(searchDogName(search));
-                }}><IoIosSearch size={35}/></button>
+            <div className="btn" onClick={()=>{
+                    search && dispatch(searchDogName(search), setSearch(''));
+                }}>
+                <button>
+                    <IoIosSearch size={25}/>
+                </button>
             </div>
         </div>
     )
