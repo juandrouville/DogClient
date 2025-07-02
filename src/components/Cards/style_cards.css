@@ -1,12 +1,22 @@
 
 .cards{
+    width: 85%;
+    padding-top: 5em;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns:  repeat( auto-fit, minmax(18vw,1fr));
+    gap:2em;
     
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: auto;
 }
+
+@media ( width <= 800px){
+    .cards{
+        width: 95%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
+        padding-top: 2em;
+    }
+}
+    
     
     

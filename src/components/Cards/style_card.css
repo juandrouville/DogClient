@@ -1,53 +1,77 @@
 .card{
-    width: 330px;
-    height:400px;
-    background-color: var(--dark-color);
-    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+    position: relative;
+    height: 20em;
+    background-color: var(--light-color);
+    border: solid 1px var(--dark-color);
     overflow:hidden;
-    margin: 20px;
-    text-align: center;
-    transition: all 0.25s;
+    transition: all 0.5s ease-in-out;
 }
 
 .card:hover{
-    transform: translateY(-15px);
-    box-shadow: 0 12px 16px rgba(0,0,0,0.2);
-}
-.card img{
-    width: 330px;
-    height: 220px;
+    transform: translateY(-0.5em);
+    box-shadow:  0 6px 6px var(--dark-color);
+    transition: all 0.5s ease-in-out;
 }
 
-.card h3{
-    font-family: sans-serif;
-    font-size: 20px;
-    border-bottom: solid 3px black;
-}
-
-.card .temperaments{
+.cardImage{
     width: 100%;
-    display: flex;
-    flex-wrap:wrap;
-    justify-content: center;
-    padding-bottom: 5px;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
-.card .temperaments h5{
-    
-    margin: 4px 6px;
-    background-color:rgb(252, 187, 24);
-    border-radius: 5px;
-    padding: 2px 5px 4px 5px;
+.nameDog{
+    position: absolute;
+    top:75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: solid 1px var(--dark-color);
+    background-color: var(--dark-color);
+    margin: 0;
+    width: 85%;
+    color:var(--my-yellow);
+    z-index: 1;
+    transition: all 0.5s ease-in-out;
 }
 
-.card .temperaments .link{
-    text-decoration: none;
-    color: black;
+.temperaments{
+    position: absolute;
+    text-align: left;
+    height: 100%;
+    padding-top: 0.5em;
+    width: 45%;
+    background-color: var(--my-yellow);
+    top: 0;
+    right: 0;
+    transform: translateX(110%);
+    transition: all 0.5s ease-in-out;
 }
 
-.card .temperaments h5:hover{
-    background-color: rgb(238, 175, 17);
+.card:hover .temperaments{
+    transform: translateX(0%);
+    transition: all 0.5s ease-in-out;
 }
+.card:hover .nameDog{
+    top:85%;
+    transition: all 0.5s ease-in-out;
+}
+
+.nameTemperament{
+    width:fit-content;
+    font-size: 0.8em;
+    margin: 0;
+    margin-left: 0.3em;
+    color: var(--dark-color);
+    transition: all 0.5s ease-in-out;
+}
+
+.nameTemperament:hover{
+    border-bottom: solid 1px var(--dark-color);
+    transition: all 0.5s ease-in-out;
+}
+
+
+
     
 
     
