@@ -1,10 +1,11 @@
 .card{
     position: relative;
-    height: 20em;
     background-color: var(--light-color);
     border: solid 1px var(--dark-color);
     overflow:hidden;
     transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    aspect-ratio: 4/3;
 }
 
 .card:hover{
@@ -32,6 +33,7 @@
     color:var(--my-yellow);
     z-index: 1;
     transition: all 0.5s ease-in-out;
+    font-size: clamp(0.4em, 1.8vw, 1.1em);
 }
 
 .temperaments{
@@ -47,6 +49,15 @@
     transition: all 0.5s ease-in-out;
 }
 
+.nameTemperament{
+    width:fit-content;
+    font-size: clamp(0.4em , 0.8vw, 0.8em);
+    margin: 0;
+    margin-left: 0.5em;
+    color: var(--dark-color);
+    transition: all 0.5s ease-in-out;
+}
+
 .card:hover .temperaments{
     transform: translateX(0%);
     transition: all 0.5s ease-in-out;
@@ -56,14 +67,6 @@
     transition: all 0.5s ease-in-out;
 }
 
-.nameTemperament{
-    width:fit-content;
-    font-size: 0.8em;
-    margin: 0;
-    margin-left: 0.3em;
-    color: var(--dark-color);
-    transition: all 0.5s ease-in-out;
-}
 
 .nameTemperament:hover{
     border-bottom: solid 1px var(--dark-color);

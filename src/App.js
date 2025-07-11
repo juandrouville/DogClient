@@ -19,7 +19,7 @@ function App() {
         <Route exact path = "/" element={<Landing/>}/>
         <Route path = "/home" element={<Home/>}/>
         <Route path = "/create" element={<Form/>}/>
-        <Route path = "/details/:dogId" render={({match})=> <Details match={match}/>}/>
+        <Route path = "/details/:dogId" element={<Details/>}/>
         <Route path = "/temperament/:temperamentName" render={({match})=> <ByTemperaments match={match}/>}/>
         <Route path = "/mydogs" element={<Created/>}/>
       </Routes>

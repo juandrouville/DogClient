@@ -50,12 +50,10 @@ export function prevPage(page){
 };
 
 export function getDogs(){
-    console.log(`entrou no get dog,${BASE_URL_API}/dogs`);
     return (dispatch) => {
         dispatch(requestDogs());
         axios.get(`${BASE_URL_API}/dogs`)
         .then(response => {
-            console.log(response.data)
             dispatch(succesDogs(response.data))
         })
         .catch(error => {
@@ -122,6 +120,7 @@ export function getNextPage(page){
          dispatch(requestDogs());
          axios.get(`${BASE_URL_API}/dogs/${dogId}`)
          .then(response => {
+            console.log(response.date);
              dispatch(succesDogs(response.data))
          })
          .catch(error => {

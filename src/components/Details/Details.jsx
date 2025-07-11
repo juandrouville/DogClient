@@ -1,43 +1,35 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getDetailsDog } from '../../redux/actions/dogs';
-import NavBar from '../NavBar/NavBar';
 import './details_style.css';
 
 
-function Details({match}){
-    const dispatch = useDispatch();
-    useEffect(()=>{
-        const dogId = match.params.dogId;
-        console.log(dogId);
-        dispatch(getDetailsDog(dogId));
-    },[]);
-    const state = useSelector((state)=>state.dogs.dogs);
-    console.log(state.temperaments);
+function Details({name, image, temperaments, weight_min, weight_max, life, height}) {
     return (
-        <div>
-            <NavBar/>
-                <div className="details">
-                    <div className="card-details">
-                        <img src={state.image} alt=""/>
-                        <h3>{state.name}</h3>
-                            <div className="container-info">
-                                <div className="temperaments">
-                                    {state.temperaments && state.temperaments.map(ele => 
-                                    <h5>{ele.name}</h5>)}
-                                </div>
-                                <div className="info" >
-                                    <h5>Weight : {state.weight_min} Kg - {state.weight_max} Kg</h5>
-                                    <h5>Life : {state.life} </h5>
-                                    <h5>Height : {state.height}</h5>
-                                </div>
-                            </div>
-                    </div>
+        <div className="details">
+            <h1 className='nameDogDetails'>{name}</h1>
+            <img src={image} alt="" />
+            <div className='containerListTemperaments'>
+                <h1 className='titleListTemperaments'>Temperament</h1>
+                <div className='listTemperament'>
+                    {temperaments && temperaments.map( (ele) => (  
+                        <h1 className='temperamentName'>{ele.name}</h1>
+                        )) }
                 </div>
+            </div>
+            <div className='containerInfo'>
+                <h1 className='titleListAttribute'>Body Metrics</h1>
+                <div className='listAttribute'>
+                    <h1>Life: {life}</h1>
+                    <h1>Height: {height}</h1>
+                    <h1>Weight: Min {weight_min} - Max {weight_max}</h1>
+                </div>
+            </div>
         </div>
     );
 };
-                                    
-                                    
+
+
+
+
+
 
 export default Details;
