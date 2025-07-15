@@ -16,9 +16,9 @@ function Card({ id, name, img, temperaments, onClick }){
             <h3 className='nameDog'>{name}</h3>
             <div className="temperaments">
                 {temperaments && temperaments.map(ele =>
-                    <Link to={`/temperament/${ele.name}`} style={{ textDecoration: 'none' }}>
+                    // <Link to={`/temperament/${ele.name}`} style={{ textDecoration: 'none' }}>
                         <h1 className='nameTemperament'>{ele.name}</h1>
-                    </Link>
+                    // </Link>
                 )}
             </div>
         </div>

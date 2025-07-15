@@ -1,5 +1,7 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { getDogs } from '../../redux/actions/dogs';
 import Cards from '../Cards/Cards';
 import NavBar from '../NavBar/NavBar';
 import Pagination from '../Pagination/Pagination';
@@ -11,6 +13,11 @@ import './style_home.css';
 function Home(){
     
     const state = useSelector((state)=> state.dogs);
+
+    const dispatch = useDispatch();
+            useEffect(()=>{
+                dispatch(getDogs());
+        },[]);
 
     return(
         <div>
