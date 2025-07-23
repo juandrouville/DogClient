@@ -1,6 +1,7 @@
 import {
     REQUEST_DOGS,
     SUCCES_DOGS,
+    FIND_SUCCES,
     ERROR_DOGS,
     RESET_DOGS,
     NEXT_PAGE,
@@ -11,7 +12,8 @@ export const initialState = {
     loading:false,
     dogs:[],
     error:'',
-    page:0
+    page:0,
+    finded:[],
 };
 
 function dogs (state = initialState,action){
@@ -28,6 +30,13 @@ function dogs (state = initialState,action){
                 loading:false,
                 dogs:action.payload,
                 error:'',
+            };
+        };
+        case FIND_SUCCES : {
+            return {
+                ...state,
+                loading:false,
+                finded:action.payload,
             };
         };
         case ERROR_DOGS : {

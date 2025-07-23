@@ -5,19 +5,19 @@ import Modal from '../Modal/Modal.jsx';
 import Details from '../Details/Details.jsx';
 import './style_cards.css';
 
-function Cards(){
-    const state = useSelector((state)=> state.dogs.dogs);
+function Cards(props){
+    const dogs = props.dogs;
     const [ selectDog, setSelectDog ] = React.useState(null);
     return (
         <div className = "cards">
-            { Array.isArray(state) && state.map(ele  =>
+            { Array.isArray(dogs) && dogs.map(ele  =>
             <Card
                 id={ele.id}
                 key={ele.id}
                 name={ele.name}
                 img={ele.image}
                 temperaments={ele.temperaments}
-                onClick={ ()=> { setSelectDog({...ele}); console.log(selectDog)}}
+                onClick={ ()=> { setSelectDog({...ele})}}
                 >
             </Card>
             )}

@@ -1,6 +1,7 @@
 import axios from 'axios';
 export const REQUEST_DOGS = 'REQUEST_DOGS';
 export const SUCCES_DOGS = 'SUCCES_DOGS';
+export const FIND_SUCCES = 'FIND_SUCCES';
 export const ERROR_DOGS = 'ERROR_DOGS';
 export const RESET_DOGS = 'RESET_DOGS';
 export const NEXT_PAGE = 'NEXT_PAGE';
@@ -18,6 +19,13 @@ export function requestDogs(){
 export function succesDogs(response){
     return {
         type:SUCCES_DOGS,
+        payload:response,
+    };
+};
+
+export function findSucces(response){
+    return {
+        type:FIND_SUCCES,
         payload:response,
     };
 };
@@ -49,12 +57,22 @@ export function prevPage(page){
     }
 };
 
+function paginationDogs(arrayDogs){
+    const pagination = 12;
+    const arrayPagination = [];
+    for(let x = 0; x < arrayDogs.length; x += pagination){
+        arrayPagination.push(arrayDogs.slice(x, x + pagination))
+    };
+    return arrayPagination;
+}
+
 export function getDogs(){
     return (dispatch) => {
         dispatch(requestDogs());
         axios.get(`${BASE_URL_API}/dogs`)
         .then(response => {
-            dispatch(succesDogs(response.data))
+            const dogsInPage = paginationDogs(response.data);
+            dispatch(succesDogs(dogsInPage));
         })
         .catch(error => {
                 dispatch(errorDogs('Not found request'))
@@ -64,29 +82,13 @@ export function getDogs(){
 
 export function getNextPage(page){
     return (dispatch) => {
-        dispatch(nextPage(page))
-        dispatch(requestDogs());
-       axios.get(`${BASE_URL_API}/dogs?page=${page}`)
-        .then(response => {
-            dispatch(succesDogs(response.data))
-        })
-        .catch(error => {
-            dispatch(errorDogs('Not found request'))
-        });
+        dispatch(nextPage(page));
     };
 };
 
  export function getPrevPage(page){
      return (dispatch) => {
-         dispatch(prevPage(page))
-         dispatch(requestDogs());
-            axios.get(`${BASE_URL_API}/dogs?page=${page}`)
-         .then(response => {
-             dispatch(succesDogs(response.data))
-         })
-         .catch(error => {
-             dispatch(errorDogs('Not found request'))
-         });
+         dispatch(prevPage(page));
      };
  };
 
@@ -95,7 +97,9 @@ export function getNextPage(page){
          dispatch(requestDogs());
          axios.get(`${BASE_URL_API}/dogs?name=${search}`)
          .then(response => {
-             dispatch(succesDogs(response.data))
+            console.log('search dog',response.data);
+            dispatch(findSucces(response.data));
+            dispatch(resetDogs());
          })
          .catch(error => {
              dispatch(errorDogs('Not found request'))

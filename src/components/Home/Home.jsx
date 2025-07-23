@@ -13,7 +13,9 @@ import './style_home.css';
 function Home(){
     
     const state = useSelector((state)=> state.dogs);
-
+    const findedDogs = state.finded;
+    const page = state.page;
+    const dogs = state.dogs;
     const dispatch = useDispatch();
             useEffect(()=>{
                 dispatch(getDogs());
@@ -24,7 +26,7 @@ function Home(){
             <NavBar/>
             <div className="home">
                 {state.loading && <Loading/>}
-                {state.dogs.length !== 0 && <Cards/>}
+                {dogs.length !== 0 ? <Cards dogs = {dogs[page]}/> : <Cards dogs = {findedDogs} />}
                 {state.error !== '' && <Error/>}
             </div>
             <div>

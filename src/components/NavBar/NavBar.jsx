@@ -2,7 +2,7 @@ import React from 'react';
 import "./navBar.css";
 import SearchBar from '../SearchBar/SearchBar';
 import img from "../../img/App-dog.png";
-import { resetDogs } from '../../redux/actions/dogs';
+import { getDogs } from '../../redux/actions/dogs';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ function NavBar(){
     return(
         <div className = "containerNav">
             <div className="sectionOptions">
-            <Link to = '/home'>
+            <Link to = '/home' onClick={()=> dispatch(getDogs())}>
                 <img src={img} alt="Not Found" className='logoNav'/>
             </Link>
             <div>
