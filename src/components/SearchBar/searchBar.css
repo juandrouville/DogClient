@@ -16,6 +16,9 @@
     outline: none;
     appearance: none;
     border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     font-family: sans-serif;
     letter-spacing: 0.05em;
     transition: all 0.6s ease;

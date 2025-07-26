@@ -17,8 +17,8 @@ function NavBar(){
                 <img src={img} alt="Not Found" className='logoNav'/>
             </Link>
             <div>
-                <Link to='/create' className="routesNav">Create Dog</Link>
-                <Link to= '/mydogs' className="routesNav">My Dogs</Link>
+                {/* <Link to='/create' className="routesNav">Create Dog</Link>
+                <Link to= '/mydogs' className="routesNav">My Dogs</Link> */}
             </div>
             </div>
             <div className="searchBarNav">
